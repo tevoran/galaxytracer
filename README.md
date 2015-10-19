@@ -7,8 +7,8 @@ This project is written by Johannes Pfeiffer and can be used for educational rea
 But it is not allowed to alter and/or redestribute this code.
 
 Dependencies:
-	SFML
-	gcc
+    SFML
+    gcc
 
 Compiling instructions:
-	Linux:
+     Linux:
