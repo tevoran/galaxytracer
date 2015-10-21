@@ -9,6 +9,8 @@ But it is not allowed to alter and/or redestribute this code.
 Dependencies:
     SFML
     gcc
+    make
 
 Compiling instructions:
      Linux:
+        make
