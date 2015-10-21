@@ -7,7 +7,7 @@ int main()
     //reading configfile
         std::cout << "reading data/config\n";
     gt::config config_gt; //this reads data/config
-        std::cout << "seed: " << config_gt.getseed() << "\n";
+        std::cout << "seed: " << config_gt.getseed();
 
     //starting GUI
         std::cout << "creating window\n"; //debug msg

@@ -51,7 +51,6 @@ void gt::config::readconfig() //reading the configfile
 			std::cout << "error while reading data/config\n";
 		}
 	
-	config_file.close();
 }
 
 int gt::config::getresx()
