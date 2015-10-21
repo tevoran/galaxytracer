@@ -36,13 +36,13 @@ void gt::config::readconfig() //reading the configfile
 				if(in_line.find("resy=")!=std::string::npos)
 				{
 					in_line.erase(0,sizeof("resy=")-1);
-					resy=atoi(in_line.c_str());
+					resx=atoi(in_line.c_str());
 				}
 				//seed
 				if(in_line.find("seed=")!=std::string::npos)
 				{
 					in_line.erase(0,sizeof("seed=")-1);
-					seed=atoi(in_line.c_str());
+					resx=atoi(in_line.c_str());
 				}
 			}
 		}
