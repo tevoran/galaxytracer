@@ -3,6 +3,8 @@
 
 int main()
 {
+    //reading config file
+    
     //starting GUI
         std::cout << "creating window\n"; //debug msg
     sf::RenderWindow window(sf::VideoMode(800,800), "galaxytracer");
