@@ -1,0 +1,15 @@
+This is the description of the GUI.
+It is used to configure galaxytracer visually.
+
+Menu:   Rendering
+
+        Resolution
+                This is simply the resolution of the rendered image
+
+        Live
+                With this option the screen will refresh after each
+                rendered pixel. You will simply have a better overview
+                of the progression
+
+        Seed
+                Here you can update the seed of the universe

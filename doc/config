@@ -10,5 +10,6 @@ Following keywords exist:
 
 resx            the x resolution of the window and the rendered image
 resy            the y resolution of the window and the rendered image
+live		live=1 enables the live option
 seed            the seednumber as the rendering source
                 (it contains 8 decimal digits including 0)
