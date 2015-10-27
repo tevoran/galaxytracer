@@ -10,19 +10,13 @@ int main()
         std::cout << "seed: " << config_gt.getseed() << "\n";
 
     //starting GUI
-        std::cout << "creating window\n"; //debug msg
-    sf::RenderWindow window(sf::VideoMode(config_gt.getresx(),config_gt.getresy()), "galaxytracer");
+		std::cout << "starting GUI\n";
+    gt::gui gui_gt(config_gt.getresx(),config_gt.getresy()); //this inits the GUI
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while(window.pollEvent(event))
-        {
-            if(event.type==sf::Event::Closed)
-                window.close();
-        }
-        window.clear();
-        window.display();
-    }
+	//mainloop
+		std::cout << "entering main loop\n";
+	while(gui_gt.update())
+	{
+	}
     return 0;
 }
