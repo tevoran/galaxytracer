@@ -15,8 +15,11 @@ int main()
 
 	//mainloop
 		std::cout << "entering main loop\n";
+	float i=0;
 	while(gui_gt.update())
 	{
+		gui_gt.drawpixel(0,(int)i);
+		i=i+0.05;
 	}
     return 0;
 }
