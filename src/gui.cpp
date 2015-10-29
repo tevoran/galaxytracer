@@ -1,4 +1,5 @@
 #include "header/gt.hpp"
+#include "header/gui_makros.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -23,7 +24,11 @@ gt::gui::gui(int resx, int resy) //gui class constructor
   mousepointer.setPoint(1,sf::Vector2f(8,20));
   mousepointer.setPoint(2,sf::Vector2f(10,10));
   mousepointer.setPoint(3,sf::Vector2f(20,8));
-  mousepointer.setFillColor(sf::Color(50,75,250));
+  mousepointer.setFillColor(sf::Color(mousecolor));
+  //renderoptions object
+  object_render.setSize(sf::Vector2f(object_size_x,object_size_y));
+  object_render.setFillColor(sf::Color(object_color));
+  object_render.setPosition(object_render_pos_x,object_render_pos_y);
   std::cout << "done\n";
   
 }
@@ -58,8 +63,6 @@ void gt::gui::locatemouse(gt::config config_gt) //locate the mouse in the used w
     {
       mouseposition.y=config_gt.getresy()-1;
     }
-  std::cout << "X:" << mouseposition.x << "\n";
-  std::cout << "Y:" << mouseposition.y << "\n\n";
 }
 
 bool gt::gui::update() //updates the gui for each frame
@@ -68,6 +71,27 @@ bool gt::gui::update() //updates the gui for each frame
 {
   //mousepointer
   mousepointer.setPosition(mouseposition.x,mouseposition.y);
+  //mouse collisions
+  if(object_marked==false)
+    {
+      object_render.setFillColor(sf::Color(object_color));
+    }
+  
+  //render_options_object
+  if(mouseposition.x>object_render_pos_x &&
+     mouseposition.x<object_render_pos_x+object_size_x &&
+     mouseposition.y>object_render_pos_y &&
+     mouseposition.y<object_render_pos_y+object_size_y)
+    {
+      object_render.setFillColor(sf::Color(object_color_marked));
+      object_marked=true;
+    }
+  else
+    {
+      object_marked=false;
+    }
+  
+     
   //the sfml event loop
   sf::Event event;
   while(window->pollEvent(event))
@@ -78,8 +102,12 @@ bool gt::gui::update() //updates the gui for each frame
 	  return false;
 	}
     }
+  
   //draw all the gui stuff
+  window->draw(object_render);
   window->draw(mousepointer);
+
+  //doing the window based stuff
   window->display(); //display the rendered stuff
   window->clear(); //clear the screen
   return true;

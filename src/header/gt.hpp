@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+
 namespace gt
 {
   //configuration class
@@ -32,9 +33,11 @@ namespace gt
     
     //SFML drawing objects
     sf::ConvexShape mousepointer; //the mousepointer drawing object
+    sf::RectangleShape object_render; //the gui for the renderoptions
     
     //GUI variables
     bool render_interface; //the state of the renderinterface
+    bool object_marked; //state of object marked
   public:
     gui(int resx, int resy); //constructor for creating the gui
     bool update(); //the update for each frame
@@ -42,6 +45,14 @@ namespace gt
     void drawpixel(int x,int y,int r,int g, int b); //draw a pixel
     
   };
+
+  //GUI object
+  class gui_object
+  {
+  private:
+    bool marked; //shows if mousepointer is over the object
+  public:
+  }
 }
 
 

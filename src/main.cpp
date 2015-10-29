@@ -15,12 +15,9 @@ int main()
   
   //mainloop
   std::cout << "entering main loop\n";
-  float i=0;
   while(gui_gt.update())
     {
       gui_gt.locatemouse(config_gt);
-      gui_gt.drawpixel((int)i,(int)i,255,0,255);
-      i=i+0.05;
     }
   return 0;
 }
