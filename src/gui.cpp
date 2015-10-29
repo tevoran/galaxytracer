@@ -17,7 +17,13 @@ gt::gui::gui(int resx, int resy) //gui class constructor
 
   //SFML drawing objects
   std::cout << "initializing GUI content...";
-  mousepointer.setSize(sf::Vector2f(25,25)); //mousepointer size
+  //mousepointer
+  mousepointer.setPointCount(4); //the number of point that form mousepointer
+  mousepointer.setPoint(0,sf::Vector2f(0,0));
+  mousepointer.setPoint(1,sf::Vector2f(8,20));
+  mousepointer.setPoint(2,sf::Vector2f(10,10));
+  mousepointer.setPoint(3,sf::Vector2f(20,8));
+  mousepointer.setFillColor(sf::Color(50,75,250));
   std::cout << "done\n";
   
 }
@@ -72,6 +78,7 @@ bool gt::gui::update() //updates the gui for each frame
 	  return false;
 	}
     }
+  //draw all the gui stuff
   window->draw(mousepointer);
   window->display(); //display the rendered stuff
   window->clear(); //clear the screen

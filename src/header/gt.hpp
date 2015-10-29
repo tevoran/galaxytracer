@@ -29,8 +29,10 @@ namespace gt
     //SFML objects
     sf::RenderWindow* window; //the sfml window object
     sf::Vector2i mouseposition; //sfml vector for the mouse location
+    
     //SFML drawing objects
-    sf::RectangleShape mousepointer; //the mousepointer drawing object
+    sf::ConvexShape mousepointer; //the mousepointer drawing object
+    
     //GUI variables
     bool render_interface; //the state of the renderinterface
   public:
