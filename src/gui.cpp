@@ -1,4 +1,4 @@
-#include "gt.hpp"
+#include "header/gt.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>

@@ -26,11 +26,12 @@ namespace gt
 	class gui
 	{
 		private:
-			sf::RenderWindow* window;
+			sf::RenderWindow* window; //the sfml window object
             bool render_interface; //the state of the renderinterface
 		public:
 			gui(int resx, int resy); //constructor for creating the gui
 			bool update(); //the update for each frame
+			void drawpixel(int x,int y/*,int r,int g, int b*/); //draw a pixel
 	};
 }
 
