@@ -26,9 +26,7 @@ gt::gui::gui(int resx, int resy) //gui class constructor
   mousepointer.setPoint(3,sf::Vector2f(20,8));
   mousepointer.setFillColor(sf::Color(mousecolor));
   //renderoptions object
-  object_render.setSize(sf::Vector2f(object_size_x,object_size_y));
-  object_render.setFillColor(sf::Color(object_color));
-  object_render.setPosition(object_render_pos_x,object_render_pos_y);
+  renderobject.setposition(100,100);
   std::cout << "done\n";
   
 }
@@ -72,25 +70,7 @@ bool gt::gui::update() //updates the gui for each frame
   //mousepointer
   mousepointer.setPosition(mouseposition.x,mouseposition.y);
   //mouse collisions
-  if(object_marked==false)
-    {
-      object_render.setFillColor(sf::Color(object_color));
-    }
-  
-  //render_options_object
-  if(mouseposition.x>object_render_pos_x &&
-     mouseposition.x<object_render_pos_x+object_size_x &&
-     mouseposition.y>object_render_pos_y &&
-     mouseposition.y<object_render_pos_y+object_size_y)
-    {
-      object_render.setFillColor(sf::Color(object_color_marked));
-      object_marked=true;
-    }
-  else
-    {
-      object_marked=false;
-    }
-  
+  renderobject.checkmouse(mouseposition.x,mouseposition.y);
      
   //the sfml event loop
   sf::Event event;
@@ -104,7 +84,7 @@ bool gt::gui::update() //updates the gui for each frame
     }
   
   //draw all the gui stuff
-  window->draw(object_render);
+  renderobject.draw(window);
   window->draw(mousepointer);
 
   //doing the window based stuff

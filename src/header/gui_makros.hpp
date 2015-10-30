@@ -11,7 +11,7 @@
 #define object_size_y 50 //the y size of a gui object
 
 //positions
-#define object_render_pos_x 100 //the x position of the renderoptions object
-#define object_render_pos_y 100 //the y position of the renderoptions object
+#define first_pos_x 100 //the x position of the renderoptions object
+#define first_pos_y 100 //the y position of the renderoptions object
 
 #endif
