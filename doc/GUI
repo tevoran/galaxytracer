@@ -13,3 +13,8 @@ Menu:   Rendering
 
         Seed
                 Here you can update the seed of the universe
+
+
+Colorscheme:
+The colorscheme can be changed before compilation in the file
+src/header/gui_makros.hpp.
