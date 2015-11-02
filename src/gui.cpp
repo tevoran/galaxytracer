@@ -12,6 +12,7 @@ gt::gui::gui(int resx,int resy,long seed) //gui class constructor
 {
   //init variables
   render_interface=false; //this tells that the render interface is currently closed
+  mouseleftlastframe=sf::Mouse::isButtonPressed(sf::Mouse::Left);
   
   //window
   window = new sf::RenderWindow(sf::VideoMode(resx,resy),"galaxytracer"); //creating the window
@@ -48,6 +49,9 @@ gt::gui::gui(int resx,int resy,long seed) //gui class constructor
   tmpstringstream << seed;
   tmpstring+=tmpstringstream.str();
   seedshow.settext(font,tmpstring,40);
+  //liveobject
+  liveobject.setposition(50,100);
+  liveobject.settext(font,"live: off");
   std::cout << "done\n";
   
 }
@@ -84,15 +88,74 @@ void gt::gui::locatemouse(gt::config config_gt) //locate the mouse in the used w
     }
 }
 
+bool gt::gui::mouseclickleft()
+{
+  bool returnvalue;
+  mouseleftcurrentframe=sf::Mouse::isButtonPressed(sf::Mouse::Left);
+  //return true if left button is pressed once
+  if(mouseleftlastframe==true and mouseleftcurrentframe==true)
+    {
+      returnvalue=false;
+    }
+  if(mouseleftlastframe==true and mouseleftcurrentframe==false)
+    {
+      returnvalue=false;
+    }
+  if(mouseleftlastframe==false and mouseleftcurrentframe==true)
+    {
+      returnvalue=true;
+    }
+  if(mouseleftlastframe==false and mouseleftcurrentframe==false)
+    {
+      returnvalue=false;
+    }
+  //preparing next frame
+  mouseleftlastframe=mouseleftcurrentframe;
+  return returnvalue;
+}
+
 bool gt::gui::update() //updates the gui for each frame
 //true == gui works
 //false == gui is closed
 {
   //mousepointer
   mousepointer.setPosition(mouseposition.x,mouseposition.y);
+  bool mouseleft=mouseclickleft(); //check if the left mousebutton is pressed this frame
+
   //mouse collisions
-  renderobject.checkmouse(mouseposition.x,mouseposition.y);
-     
+  //checking the render options interface
+  bool tmpcheckvalue=renderobject.checkmouse(mouseposition.x,mouseposition.y); //checks for collision of mouse and RENDEROPTIONS
+  //open optional render_interface by clicking on RENDEROPTIONS
+  if(tmpcheckvalue==true and
+     mouseleft==true and
+     render_interface==false)
+    {
+      render_interface=true;
+      mouseleft=false; //important because the click has been handled
+    }
+  //closing optional render_interface by clicking on RENDEROPTIONS again
+  if(tmpcheckvalue==true and
+     mouseleft==true and
+     render_interface==true)
+    {
+      render_interface=false;
+    }
+  //optional mousecollisions
+  if(render_interface==true) //if user had clicked on renderoptions
+    {
+      liveobject.checkmouse(mouseposition.x,mouseposition.y);
+    }
+  
+  //draw all the gui stuff
+  renderobject.draw(window);
+  if(render_interface==true) //if user had clicked on the mouse
+    {
+      liveobject.draw(window);
+    }
+  seedshow.draw(window);
+  
+  window->draw(mousepointer);
+
   //the sfml event loop
   sf::Event event;
   while(window->pollEvent(event))
@@ -104,12 +167,6 @@ bool gt::gui::update() //updates the gui for each frame
 	}
     }
   
-  //draw all the gui stuff
-  renderobject.draw(window);
-  seedshow.draw(window);
-  
-  window->draw(mousepointer);
-
   //doing the window based stuff
   window->display(); //display the rendered stuff
   window->clear(); //clear the screen
