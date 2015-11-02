@@ -11,7 +11,7 @@ int main()
   
   //starting GUI
   std::cout << "starting GUI\n";
-  gt::gui gui_gt(config_gt.getresx(),config_gt.getresy(),config_gt.getseed()); //this inits the GUI
+  gt::gui gui_gt(config_gt.getresx(),config_gt.getresy(),config_gt.getseed(),config_gt.getlive()); //this inits the GUI
   
   //mainloop
   std::cout << "entering main loop\n";

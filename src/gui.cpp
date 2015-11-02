@@ -8,12 +8,11 @@
 #include <sstream>
 
 //GUI class
-gt::gui::gui(int resx,int resy,long seed) //gui class constructor
+gt::gui::gui(int resx,int resy,long seed,bool live) //gui class constructor
 {
   //init variables
   render_interface=false; //this tells that the render interface is currently closed
   mouseleftlastframe=sf::Mouse::isButtonPressed(sf::Mouse::Left);
-  
   //window
   window = new sf::RenderWindow(sf::VideoMode(resx,resy),"galaxytracer"); //creating the window
   window->clear(); //blackens the screen
@@ -51,7 +50,25 @@ gt::gui::gui(int resx,int resy,long seed) //gui class constructor
   seedshow.settext(font,tmpstring,40);
   //liveobject
   liveobject.setposition(50,100);
-  liveobject.settext(font,"live: off");
+  if(live==true)
+    {
+      liveobject.settext(font,"live: on");
+    }
+  if(live==false)
+    {
+      liveobject.settext(font,"live: off");
+    }
+  //resolutionobject
+  resolutionobject.setposition(50,150);
+  tmpstring="resolution:"; //defined at seedshow object
+  tmpstringstream.str(""); //defined at seedshow object
+  tmpstringstream << resx;
+  tmpstring+=tmpstringstream.str();
+  tmpstring+="x";
+  tmpstringstream.str("");
+  tmpstringstream << resy;
+  tmpstring+=tmpstringstream.str();
+  resolutionobject.settext(font,tmpstring,40);
   std::cout << "done\n";
   
 }
@@ -144,6 +161,7 @@ bool gt::gui::update() //updates the gui for each frame
   if(render_interface==true) //if user had clicked on renderoptions
     {
       liveobject.checkmouse(mouseposition.x,mouseposition.y);
+      resolutionobject.checkmouse(mouseposition.x,mouseposition.y);
     }
   
   //draw all the gui stuff
@@ -151,6 +169,7 @@ bool gt::gui::update() //updates the gui for each frame
   if(render_interface==true) //if user had clicked on the mouse
     {
       liveobject.draw(window);
+      resolutionobject.draw(window);
     }
   seedshow.draw(window);
   

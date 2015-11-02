@@ -58,6 +58,7 @@ namespace gt
     gt::guiobject renderobject;
     gt::guiobject seedshow;
     gt::guiobject liveobject;
+    gt::guiobject resolutionobject;
     
     //GUI variables
     bool render_interface; //the state of the renderinterface
@@ -66,7 +67,7 @@ namespace gt
     bool mouseleftclick; //if there is actually a click with the left mousebutton
     
   public:
-    gui(int resx, int resy,long seed); //constructor for creating the gui
+    gui(int resx, int resy,long seed,bool live); //constructor for creating the gui
     bool update(); //the update for each frame
     void locatemouse(gt::config config_gt); //locate the mouse in the used window
     bool mouseclickleft(); //shows if there was mouse click with the left button
