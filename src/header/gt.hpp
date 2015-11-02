@@ -40,7 +40,7 @@ namespace gt
     void draw(sf::RenderWindow* windowforobject); //draw the object on the screen
     void settext(sf::Font font_in,std::string string); //set the text
     void setposition(int x,int y); //setting the position of the object
-    void checkmouse(int mouse_x,int mouse_y); //checking for collision with the mouse
+    bool checkmouse(int mouse_x,int mouse_y); //checking for collision with the mouse
   };
   
   //GUI class

@@ -45,7 +45,8 @@ void gt::guiobject::setposition(int x,int y)
 
 //checking for a collision with the mouse
 //and use the mark variable and change the color of the object
-void gt::guiobject::checkmouse(int mouse_x,int mouse_y)
+//returns true for mouse hovers above the object
+bool gt::guiobject::checkmouse(int mouse_x,int mouse_y)
 {
   if(mouse_x>=position_x and
      mouse_x<=position_x+object_size_x and
@@ -65,4 +66,5 @@ void gt::guiobject::checkmouse(int mouse_x,int mouse_y)
       marked=false;
       object.setFillColor(sf::Color(object_color)); //setting the normal color
     }
+  return marked;
 }
