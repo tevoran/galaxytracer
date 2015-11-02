@@ -2,6 +2,7 @@
 #define _gt_hpp
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 
 namespace gt
@@ -28,12 +29,16 @@ namespace gt
   {
   private:
     sf::RectangleShape object; //the SFML object
+    sf::Font font; //SFML font
+    sf::Text text; //SFML text
+    
     bool marked; //shows if mousepointer is over the object
     int position_x; //the x position
     int position_y; //the y position
   public:
     guiobject(); //the constructor
     void draw(sf::RenderWindow* windowforobject); //draw the object on the screen
+    void settext(sf::Font font_in,std::string string); //set the text
     void setposition(int x,int y); //setting the position of the object
     void checkmouse(int mouse_x,int mouse_y); //checking for collision with the mouse
   };
@@ -46,7 +51,8 @@ namespace gt
     sf::RenderWindow* window; //the sfml window object
     sf::Vector2i mouseposition; //sfml vector for the mouse location
     sf::ConvexShape mousepointer; //the mousepointer drawing object
-
+    sf::Font font; //SFML font
+    
     //GUI objects
     gt::guiobject renderobject;
     

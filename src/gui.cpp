@@ -14,8 +14,18 @@ gt::gui::gui(int resx, int resy) //gui class constructor
   window = new sf::RenderWindow(sf::VideoMode(resx,resy),"galaxytracer"); //creating the window
   window->clear(); //blackens the screen
   window->display(); //displays the empty screen
+  window->setMouseCursorVisible(false); //doesn't display the mousecursor
   std::cout << "window created\n";
-
+  
+  //loading font
+  //the font is a parameter for the gui objects
+  std::cout << "loading font from data/font/octab-017.ttf...";
+  if(!font.loadFromFile("data/font/octab-017.ttf"))
+    {
+      std::cout << "\nerror while reading font";
+    }
+  std::cout << "done\n";
+  
   //SFML drawing objects
   std::cout << "initializing GUI content...";
   //mousepointer
@@ -26,7 +36,8 @@ gt::gui::gui(int resx, int resy) //gui class constructor
   mousepointer.setPoint(3,sf::Vector2f(20,8));
   mousepointer.setFillColor(sf::Color(mousecolor));
   //renderoptions object
-  renderobject.setposition(100,100);
+  renderobject.setposition(50,50);
+  renderobject.settext(font,"RENDEROPTIONS");
   std::cout << "done\n";
   
 }
@@ -85,6 +96,7 @@ bool gt::gui::update() //updates the gui for each frame
   
   //draw all the gui stuff
   renderobject.draw(window);
+  
   window->draw(mousepointer);
 
   //doing the window based stuff

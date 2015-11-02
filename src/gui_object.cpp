@@ -1,5 +1,8 @@
 #include <iostream>
+#include <string>
+
 #include <SFML/Graphics.hpp>
+
 #include "header/gt.hpp"
 #include "header/gui_makros.hpp"
 
@@ -18,6 +21,18 @@ gt::guiobject::guiobject()
 void gt::guiobject::draw(sf::RenderWindow* windowforobject) //using pointer in cause of the usage in the class gui
 {
   windowforobject->draw(object);
+  windowforobject->draw(text);
+}
+
+//setting displayed text
+void gt::guiobject::settext(sf::Font font_in,std::string string)
+{
+  font=font_in;
+  text.setFont(font);
+  text.setColor(sf::Color(textcolor));
+  text.setCharacterSize(textsize);
+  text.setPosition(position_x+5,position_y-10);
+  text.setString(string);
 }
 
 //setting the position of the object
@@ -29,6 +44,7 @@ void gt::guiobject::setposition(int x,int y)
 }
 
 //checking for a collision with the mouse
+//and use the mark variable and change the color of the object
 void gt::guiobject::checkmouse(int mouse_x,int mouse_y)
 {
   if(mouse_x>=position_x and
