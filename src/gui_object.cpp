@@ -35,6 +35,17 @@ void gt::guiobject::settext(sf::Font font_in,std::string string)
   text.setString(string);
 }
 
+//setting displayed text
+void gt::guiobject::settext(sf::Font font_in,std::string string,int size)
+{
+  font=font_in;
+  text.setFont(font);
+  text.setColor(sf::Color(textcolor));
+  text.setCharacterSize(size);
+  text.setPosition(position_x+5,position_y-10);
+  text.setString(string);
+}
+
 //setting the position of the object
 void gt::guiobject::setposition(int x,int y)
 {

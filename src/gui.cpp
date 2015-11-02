@@ -2,10 +2,13 @@
 #include "header/gui_makros.hpp"
 
 #include <SFML/Graphics.hpp>
+
 #include <iostream>
+#include <string>
+#include <sstream>
 
 //GUI class
-gt::gui::gui(int resx, int resy) //gui class constructor
+gt::gui::gui(int resx,int resy,long seed) //gui class constructor
 {
   //init variables
   render_interface=false; //this tells that the render interface is currently closed
@@ -38,6 +41,13 @@ gt::gui::gui(int resx, int resy) //gui class constructor
   //renderoptions object
   renderobject.setposition(50,50);
   renderobject.settext(font,"RENDEROPTIONS");
+  //seedshow object
+  seedshow.setposition(resx-300,resy-75);
+  std::string tmpstring="seed=";
+  std::stringstream tmpstringstream;
+  tmpstringstream << seed;
+  tmpstring+=tmpstringstream.str();
+  seedshow.settext(font,tmpstring,40);
   std::cout << "done\n";
   
 }
@@ -96,6 +106,7 @@ bool gt::gui::update() //updates the gui for each frame
   
   //draw all the gui stuff
   renderobject.draw(window);
+  seedshow.draw(window);
   
   window->draw(mousepointer);
 

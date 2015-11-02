@@ -39,6 +39,7 @@ namespace gt
     guiobject(); //the constructor
     void draw(sf::RenderWindow* windowforobject); //draw the object on the screen
     void settext(sf::Font font_in,std::string string); //set the text
+    void settext(sf::Font font_in,std::string string,int size); //set the text and the charsize
     void setposition(int x,int y); //setting the position of the object
     bool checkmouse(int mouse_x,int mouse_y); //checking for collision with the mouse
   };
@@ -55,12 +56,13 @@ namespace gt
     
     //GUI objects
     gt::guiobject renderobject;
+    gt::guiobject seedshow;
     
     //GUI variables
     bool render_interface; //the state of the renderinterface
     
   public:
-    gui(int resx, int resy); //constructor for creating the gui
+    gui(int resx, int resy,long seed); //constructor for creating the gui
     bool update(); //the update for each frame
     void locatemouse(gt::config config_gt); //locate the mouse in the used window
     void drawpixel(int x,int y,int r,int g, int b); //draw a pixel
