@@ -3,11 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 
-#include <iostream>
-#include <string>
-#include <sstream>
-
-
 void gt::gui::locatemouse(gt::config config_gt) //locate the mouse in the used window
 {
   mouseposition=sf::Mouse::getPosition(*window); //saving the location

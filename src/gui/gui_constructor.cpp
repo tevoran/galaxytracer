@@ -39,17 +39,17 @@ gt::gui::gui(int resx,int resy,long seed,bool live) //gui class constructor
   mousepointer.setPoint(3,sf::Vector2f(20,8));
   mousepointer.setFillColor(sf::Color(mousecolor));
   //renderoptions object
-  renderobject.setposition(50,50);
+  renderobject.setposition(25,50);
   renderobject.settext(font,"RENDEROPTIONS");
   //seedshow object
-  seedshow.setposition(resx-300,resy-75);
+  seedshow.setposition(resx-250,resy-75);
   std::string tmpstring="seed=";
   std::stringstream tmpstringstream;
   tmpstringstream << seed;
   tmpstring+=tmpstringstream.str();
   seedshow.settext(font,tmpstring,40);
   //liveobject
-  liveobject.setposition(50,100);
+  liveobject.setposition(25,100);
   if(live==true)
     {
       liveobject.settext(font,"live: on");
@@ -59,8 +59,8 @@ gt::gui::gui(int resx,int resy,long seed,bool live) //gui class constructor
       liveobject.settext(font,"live: off");
     }
   //resolutionobject
-  resolutionobject.setposition(50,150);
-  tmpstring="resolution:"; //defined at seedshow object
+  resolutionobject.setposition(25,150);
+  tmpstring="resolution: "; //defined at seedshow object
   tmpstringstream.str(""); //defined at seedshow object
   tmpstringstream << resx;
   tmpstring+=tmpstringstream.str();

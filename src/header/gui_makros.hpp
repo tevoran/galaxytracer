@@ -9,7 +9,7 @@
 
 //sizes
 #define textsize 50 //the size of the characters
-#define object_size_x 300 //the x size of a gui object
+#define object_size_x 350 //the x size of a gui object
 #define object_size_y 50 //the y size of a gui object
 
 //positions
