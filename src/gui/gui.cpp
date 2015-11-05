@@ -30,18 +30,18 @@ bool gt::gui::update() //updates the gui for each frame
   bool tmpcheckvalue=renderobject.checkmouse(mouseposition.x,mouseposition.y); //checks for collision of mouse and RENDEROPTIONS
   //open optional render_interface by clicking on RENDEROPTIONS
   if(tmpcheckvalue==true and
-     mouseleft==true and
-     render_interface==false)
+     mouseleft==true)
     {
-      render_interface=true;
-      mouseleft=false; //important because the click has been handled
-    }
-  //closing optional render_interface by clicking on RENDEROPTIONS again
-  if(tmpcheckvalue==true and
-     mouseleft==true and
-     render_interface==true)
-    {
-      render_interface=false;
+      if(render_interface==false)//open the render interface
+	{
+	  render_interface=true;
+	  mouseleft=false;
+	}
+      if(render_interface==true and mouseleft==true)//closing the renderinterface
+	{
+	  render_interface=false;
+	  mouseleft=false;
+	}
     }
   //optional mousecollisions
   if(render_interface==true) //if user had clicked on renderoptions
