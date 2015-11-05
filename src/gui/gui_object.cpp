@@ -54,20 +54,20 @@ void gt::guiobject::setposition(int x,int y)
 //returns true for mouse hovers above the object
 bool gt::guiobject::checkmouse(int mouse_x,int mouse_y)
 {
+  bool checkinside=false; //boolean for the mousepointer on the guiobject
   if(mouse_x>=position_x and
      mouse_x<=position_x+object_size_x and
      mouse_y>=position_y and
-     mouse_y<=position_y+object_size_y and
-     marked==false)//mouse collides then change color and set marked flag
+     mouse_y<=position_y+object_size_y)
+    {
+      checkinside=true;
+    }
+  if(checkinside==true and marked==false)//mouse collides then change color and set marked flag
     {
       marked=true;
       object.setFillColor(sf::Color(object_color_marked)); //setting the highlight color
     }
-  if((mouse_x<position_x or
-     mouse_x>position_x+object_size_x or
-     mouse_y<position_y or
-     mouse_y>position_y+object_size_y) and
-     marked==true)
+  if(checkinside==false and marked==true)
     {
       marked=false;
       object.setFillColor(sf::Color(object_color)); //setting the normal color
