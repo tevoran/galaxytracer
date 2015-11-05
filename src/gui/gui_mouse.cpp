@@ -32,19 +32,11 @@ bool gt::gui::mouseclickleft()
   bool returnvalue;
   mouseleftcurrentframe=sf::Mouse::isButtonPressed(sf::Mouse::Left);
   //return true if left button is pressed once
-  if(mouseleftlastframe==true and mouseleftcurrentframe==true)
-    {
-      returnvalue=false;
-    }
-  if(mouseleftlastframe==true and mouseleftcurrentframe==false)
-    {
-      returnvalue=false;
-    }
   if(mouseleftlastframe==false and mouseleftcurrentframe==true)
     {
       returnvalue=true;
     }
-  if(mouseleftlastframe==false and mouseleftcurrentframe==false)
+  else
     {
       returnvalue=false;
     }

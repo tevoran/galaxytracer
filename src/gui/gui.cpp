@@ -4,8 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include <iostream>
-#include <string>
-#include <sstream>
+
 
 //GUI class
 void gt::gui::drawpixel(int x,int y,int r,int g,int b) //draw a single pixel

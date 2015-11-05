@@ -27,12 +27,7 @@ void gt::guiobject::draw(sf::RenderWindow* windowforobject) //using pointer in c
 //setting displayed text
 void gt::guiobject::settext(sf::Font font_in,std::string string)
 {
-  font=font_in;
-  text.setFont(font);
-  text.setColor(sf::Color(textcolor));
-  text.setCharacterSize(textsize);
-  text.setPosition(position_x+5,position_y-10);
-  text.setString(string);
+  gt::guiobject::settext(font_in,string,textsize);
 }
 
 //setting displayed text
