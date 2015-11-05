@@ -18,10 +18,10 @@ namespace gt
   public:
     config(); //constructor
     void readconfig(); //read the config file data/config
-    int getresx(); //getting the x-resolution
-    int getresy(); //getting the y-resolution
-    long int getseed(); //getting the seed
-    bool getlive(); //getting the live-value
+    int getresx(){return resx;}; //getting the x-resolution
+    int getresy(){return resy;}; //getting the y-resolution
+    long int getseed(){return seed;}; //getting the seed
+    bool getlive(){return live;}; //getting the live-value
   };
 
   //GUI object

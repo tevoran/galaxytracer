@@ -59,23 +59,3 @@ void gt::config::readconfig() //reading the configfile
 	
 	config_file.close();
 }
-
-int gt::config::getresx()
-{
-	return resx;
-}
-
-int gt::config::getresy()
-{
-	return resy;
-}
-
-long int gt::config::getseed()
-{
-	return seed;
-}
-
-bool gt::config::getlive()
-{
-	return live;
-}
