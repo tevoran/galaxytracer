@@ -8,6 +8,8 @@
 namespace gt
 {
   //configuration class
+  //implemented as singleton, because just one instance is needed
+  //each new instance gets the same location in the memory
   class config
   {
   private:
@@ -15,8 +17,11 @@ namespace gt
     int resy;
     bool live;
     long int seed;
+    config();//private constructor
+    config(const gt::config&);
+    config & operator=(const gt::config&);
   public:
-    config(); //constructor
+    static gt::config& init(); //this starts the class
     void readconfig(); //read the config file data/config
     int getresx(){return resx;}; //getting the x-resolution
     int getresy(){return resy;}; //getting the y-resolution
@@ -69,7 +74,7 @@ namespace gt
   public:
     gui(int resx, int resy,long seed,bool live); //constructor for creating the gui
     bool update(); //the update for each frame
-    void locatemouse(gt::config config_gt); //locate the mouse in the used window
+    void locatemouse(gt::config* config_gt); //locate the mouse in the used window
     bool mouseclickleft(); //shows if there was mouse click with the left button
     void drawpixel(int x,int y,int r,int g, int b); //draw a pixel
   };

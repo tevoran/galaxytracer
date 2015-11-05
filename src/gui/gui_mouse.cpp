@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-void gt::gui::locatemouse(gt::config config_gt) //locate the mouse in the used window
+void gt::gui::locatemouse(gt::config* config_gt) //locate the mouse in the used window
 {
   mouseposition=sf::Mouse::getPosition(*window); //saving the location
   //keeping the mouseposition inside the window
@@ -11,17 +11,17 @@ void gt::gui::locatemouse(gt::config config_gt) //locate the mouse in the used w
     {
       mouseposition.x=0;
     }
-  if(mouseposition.x>=config_gt.getresx())
+  if(mouseposition.x>=config_gt->getresx())
     {
-      mouseposition.x=config_gt.getresx()-1;
+      mouseposition.x=config_gt->getresx()-1;
     }
   if(mouseposition.y<0)
     {
       mouseposition.y=0;
     }
-  if(mouseposition.y>=config_gt.getresy())
+  if(mouseposition.y>=config_gt->getresy())
     {
-      mouseposition.y=config_gt.getresy()-1;
+      mouseposition.y=config_gt->getresy()-1;
     }
 }
 
