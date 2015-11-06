@@ -9,8 +9,8 @@
 int main()
 {
   //generating parameters
-  float a=3,a2=3,a3=1,a4=1,a5=1;
-  float b=0.100,b2=5,b3=500,b4=1000,b5=10000;
+  float a=100,a2=30,a3=10,a4=5,a5=1;
+  float b=5,b2=5,b3=500,b4=1000,b5=10000;
   float c=0,c2=2,c3=0,c4=0,c5=0;
   float r0=300,r;
   int spherex=xmax/2,spherey=ymax/2;
