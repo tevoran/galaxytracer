@@ -1,5 +1,6 @@
 #include <iostream>
 #include "header/gt.hpp"
+#include "header/gui.hpp"
 
 int main()
 {

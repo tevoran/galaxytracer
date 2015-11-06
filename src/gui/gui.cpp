@@ -1,3 +1,4 @@
+#include "../header/gui.hpp"
 #include "../header/gt.hpp"
 #include "../header/gui_makros.hpp"
 

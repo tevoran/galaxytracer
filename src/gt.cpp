@@ -66,3 +66,8 @@ void gt::config::readconfig() //reading the configfile
   
   config_file.close();
 }
+
+void gt::config::writeconfig()
+{
+  //std::cout << "currently writing access to data/config\n";
+}

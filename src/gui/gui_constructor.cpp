@@ -1,4 +1,5 @@
 #include "../header/gt.hpp"
+#include "../header/gui.hpp"
 #include "../header/gui_makros.hpp"
 
 #include <SFML/Graphics.hpp>

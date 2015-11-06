@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "../header/gt.hpp"
+#include "../header/gui.hpp"
 #include "../header/gui_makros.hpp"
 
 //constructor for the class gui_object
