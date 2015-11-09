@@ -6,6 +6,7 @@
 gt::gui::guiModel& gt::gui::guiModel::init()
 {
   static guiModel _init;
-  std::cout << "init the GUI model instance\n";
+  //std::cout << "location in RAM for GUI model: "<< &_init;
+  
   return _init;
 }

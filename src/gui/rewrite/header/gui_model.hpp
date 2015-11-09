@@ -1,7 +1,7 @@
 #ifndef gui_model_hpp
 #define gui_model_hpp
 
-
+#include "gui.hpp"
 
 namespace gt
 {
@@ -10,7 +10,7 @@ namespace gt
     //guiModel implemented as singleton because just one instance is needed
     class guiModel
     {
-    private:
+    private:      
       guiModel(){}; //empty private constructor
       guiModel(const gt::gui::guiModel&); //preventing wrong initialization
       guiModel & operator=(const gt::gui::guiModel&); //preventing wrong initialization
