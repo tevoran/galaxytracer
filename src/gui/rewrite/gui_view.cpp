@@ -9,10 +9,12 @@ gt::gui::view::view()
 {
   //read config
   gt::config* config_gt=&gt::config::init();
-
+  resx=config_gt->getresx();
+  resy=config_gt->getresy();
+  
   //creating the window
   std::cout << "Init SFML window...";
-  window=new sf::RenderWindow(sf::VideoMode(config_gt->getresx(),config_gt->getresy()),"galaxytracer");
+  window=new sf::RenderWindow(sf::VideoMode(resx,resy),"galaxytracer");
   window->clear();
   window->display();
   std::cout << "done\n";

@@ -23,10 +23,9 @@ int main()
   
   //mainloop
   std::cout << "entering main loop\n";
-  while(1)
+  while(userGUI.update(viewGUI)!=gtClose)
     {
       viewGUI.display();
-      //gui_gt.locatemouse(config_gt);
     }
   return 0;
 }
